@@ -49,3 +49,24 @@ class Main {
     
     //Big O of O(n^2).
 }
+
+public static int disFromEdges(Node<Integer> head, int num) {
+    boolean hasAppeared = false;
+    int startCounter = 0;
+    int endCounter = 0;
+    while (head != null) {
+        if (head.getValue() == num) {
+            hasAppeared = true;
+            endCounter = 0;
+        }
+        if (hasAppeared == false && head.getValue() != num) {
+            startCounter+=1;
+        }
+        if (hasAppeared == true && head.getValue() != num) {
+            endCounter+=1;
+        }
+        head = head.getNext();
+    }
+    if (!hasAppeared) return -1;
+    return (startCounter + endCounter);
+}
