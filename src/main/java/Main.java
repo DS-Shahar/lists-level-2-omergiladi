@@ -70,3 +70,11 @@ public static int disFromEdges(Node<Integer> head, int num) {
     if (!hasAppeared) return -1;
     return (startCounter + endCounter);
 }
+
+public static boolean allUnique(Node<Integer> head) {
+    while (head.hasNext()) {
+        if (head.getValue() != head.getNext().getValue()) return false;
+        head = head.getNext();
+    }
+    return true;
+}
